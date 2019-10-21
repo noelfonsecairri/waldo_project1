@@ -17,7 +17,7 @@ try:
         * 1000
     )
     API = "drive"
-    API_VERSION = "v3" 
+    API_VERSION = "v3"
     scopes = [
         "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/drive.file",
@@ -25,7 +25,7 @@ try:
     with open("new-push-service-account.json", "r") as read_file:
         serv_acct_info = json.load(read_file)
 
-    # this needs to change to get credentials from a string object instead of a file 
+    # this needs to change to get credentials from a string object instead of a file
     # i.e. json.loads of a string from AWS SSM
     # https://google-auth.readthedocs.io/en/latest/reference/google.oauth2.service_account.html
 
@@ -34,11 +34,10 @@ try:
     )
     drive_service = discovery.build(API, API_VERSION, credentials=credentials)
 
-
     # more to put in SSM
     url_webhook = "https://noelfonseca.com/notifications"
     gfolder_id = "14gG8_SQwn7zPaRX_AvtyVSe91NbrUQZc"
-    
+
     """
     if url_webhook and gfolder_id:
         pass
@@ -49,44 +48,37 @@ try:
     # request body; note expiration ep is based on local time
     data = {
         "id": str(uuid.uuid4()),
-        "expiration": ep(2019, 12, 20, 8, 53),   
+        "expiration": ep(2019, 12, 20, 8, 53),
         "address": url_webhook,
-        "type": "web_hook"   
+        "type": "web_hook",
     }
 
     response = drive_service.files().watch(fileId=gfolder_id, body=data).execute()
     print(response)
     print(type(response))
 
-    
-
-    
-
-    channel_ID_value = response['id']
-    expiration_date_and_time = response['expiration']
-    identifier_for_the_watched_resource = response['resourceId']
-    version_specific_URI_of_the_watched_resource = response['resourceUri']
+    channel_ID_value = response["id"]
+    expiration_date_and_time = response["expiration"]
+    identifier_for_the_watched_resource = response["resourceId"]
+    version_specific_URI_of_the_watched_resource = response["resourceUri"]
 
     sync_message = {
-        
         "Content-Type": "application/json; utf-8",
         "Content-Length": "0",
         "X-Goog-Channel-ID": channel_ID_value,
-        #X-Goog-Channel-Token: channel-token-value
-        "X-Goog-Channel-Expiration" : expiration_date_and_time,
+        # X-Goog-Channel-Token: channel-token-value
+        "X-Goog-Channel-Expiration": expiration_date_and_time,
         "X-Goog-Resource-ID": identifier_for_the_watched_resource,
         "X-Goog-Resource-URI": version_specific_URI_of_the_watched_resource,
         "X-Goog-Resource-State": "sync",
-        "X-Goog-Message-Number": "1"
-
+        "X-Goog-Message-Number": "1",
     }
 
-    response2 = requests.post(url_webhook, headers = sync_message)
+    response2 = requests.post(url_webhook, headers=sync_message)
     print(response2)
     print(response2.headers)
     
-
-
+    #test
 
     # sample successful request response
     # https://developers.google.com/drive/api/v3/reference/files/watch?authuser=0#response_1
