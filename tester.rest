@@ -1,0 +1,2 @@
+POST https://noelfonseca.com/notifications
+param1 : "hello world"
