@@ -64,9 +64,8 @@ try:
     identifier_for_the_watched_resource = response["resourceId"]
     version_specific_URI_of_the_watched_resource = response["resourceUri"]
 
-    payload = {'user_name': 'admin', 'password': 'password'}
-    
-    """{
+    payload = {
+        
         "Content-Type": "application/json; utf-8",
         "Content-Length": "0",
         "X-Goog-Channel-ID": channel_ID_value,
@@ -76,7 +75,8 @@ try:
         "X-Goog-Resource-URI": version_specific_URI_of_the_watched_resource,
         "X-Goog-Resource-State": "sync",
         "X-Goog-Message-Number": "1",
-    }"""
+    }
+    
 
     response2 = requests.post(url_webhook, data=payload)
     print(response2)
