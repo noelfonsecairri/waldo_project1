@@ -57,12 +57,16 @@ try:
     print(response)
     print(type(response))
 
+    
+
     channel_ID_value = response["id"]
     expiration_date_and_time = response["expiration"]
     identifier_for_the_watched_resource = response["resourceId"]
     version_specific_URI_of_the_watched_resource = response["resourceUri"]
 
-    sync_message = {
+    payload = {'user_name': 'admin', 'password': 'password'}
+    
+    """{
         "Content-Type": "application/json; utf-8",
         "Content-Length": "0",
         "X-Goog-Channel-ID": channel_ID_value,
@@ -72,11 +76,12 @@ try:
         "X-Goog-Resource-URI": version_specific_URI_of_the_watched_resource,
         "X-Goog-Resource-State": "sync",
         "X-Goog-Message-Number": "1",
-    }
+    }"""
 
-    response2 = requests.post(url_webhook, headers=sync_message)
+    response2 = requests.post(url_webhook, data=payload)
     print(response2)
-    print(response2.headers)
+    print(response2.url)
+    print(response2.text)
     
     #test
 
