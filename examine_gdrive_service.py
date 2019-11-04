@@ -57,15 +57,17 @@ try:
     print(response)
     print(type(response))
 
-    
-
     channel_ID_value = response["id"]
     expiration_date_and_time = response["expiration"]
     identifier_for_the_watched_resource = response["resourceId"]
     version_specific_URI_of_the_watched_resource = response["resourceUri"]
 
+<<<<<<< HEAD
     payload = {
         
+=======
+    sync_message = {
+>>>>>>> parent of de238bf... after office code Oct 22
         "Content-Type": "application/json; utf-8",
         "Content-Length": "0",
         "X-Goog-Channel-ID": channel_ID_value,
@@ -76,12 +78,14 @@ try:
         "X-Goog-Resource-State": "sync",
         "X-Goog-Message-Number": "1",
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> parent of de238bf... after office code Oct 22
 
-    response2 = requests.post(url_webhook, data=payload)
+    response2 = requests.post(url_webhook, headers=sync_message)
     print(response2)
-    print(response2.url)
-    print(response2.text)
+    print(response2.headers)
     
     #test
 
