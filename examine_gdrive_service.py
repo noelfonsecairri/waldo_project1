@@ -23,8 +23,7 @@ try:
         "https://www.googleapis.com/auth/drive.file",
     ]
 
-
-    with open('drive_push_notifications-d050db5682f5.json', "r") as read_file:
+    with open("drive_push_notifications-d050db5682f5.json", "r") as read_file:
         serv_acct_info = json.load(read_file)
 
     # this needs to change to get credentials from a string object instead of a file
@@ -55,23 +54,27 @@ try:
         "type": "web_hook",
     }
 
+    
+
     response = drive_service.files().watch(fileId=gfolder_id, body=data).execute()
+    tokenResponse = drive_service.changes().getStartPageToken().execute()
+    print('Start token: %s' % response.get('startPageToken'))
+    print(tokenResponse)
+
     print(response)
     print(type(response))
-
-    
 
     channel_ID_value = response["id"]
     expiration_date_and_time = response["expiration"]
     identifier_for_the_watched_resource = response["resourceId"]
     version_specific_URI_of_the_watched_resource = response["resourceUri"]
+    channel_token_value = tokenResponse["startPageToken"]
 
     payload = {
-        
         "Content-Type": "application/json; utf-8",
         "Content-Length": "0",
         "X-Goog-Channel-ID": channel_ID_value,
-        # X-Goog-Channel-Token: channel-token-value
+        "X-Goog-Channel-Token": channel_token_value,
         "X-Goog-Channel-Expiration": expiration_date_and_time,
         "X-Goog-Resource-ID": identifier_for_the_watched_resource,
         "X-Goog-Resource-URI": version_specific_URI_of_the_watched_resource,
@@ -79,14 +82,15 @@ try:
         "X-Goog-Message-Number": "1",
     }
 
-    
-
     response2 = requests.post(url_webhook, data=payload)
     print(response2)
+    print(type(response2))
     print(response2.url)
     print(response2.text)
+
     
-    #test2
+
+    # test2
 
     # sample successful request response
     # https://developers.google.com/drive/api/v3/reference/files/watch?authuser=0#response_1
