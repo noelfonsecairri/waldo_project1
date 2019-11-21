@@ -22,7 +22,9 @@ try:
         "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/drive.file",
     ]
-    with open("new-push-service-account.json", "r") as read_file:
+
+
+    with open('drive_push_notifications-d050db5682f5.json', "r") as read_file:
         serv_acct_info = json.load(read_file)
 
     # this needs to change to get credentials from a string object instead of a file
@@ -35,7 +37,7 @@ try:
     drive_service = discovery.build(API, API_VERSION, credentials=credentials)
 
     # more to put in SSM
-    url_webhook = "https://noelfonseca.com/notifications"
+    url_webhook = "https://api.noelfonseca.com/notifications"
     gfolder_id = "14gG8_SQwn7zPaRX_AvtyVSe91NbrUQZc"
 
     """

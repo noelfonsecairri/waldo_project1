@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vaulted-journal-255206",
+  "private_key_id": "d050db5682f5fa80009aa7a0b0e9543b61f24de0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCgEn6TXmBTl2Eg\n1GFTKkeXaKTHRlTvPV0wOowqKcDSVUs/TrCk/sSuTFp+kjWRRDf0hbGmOpsV/+ln\nCSRGioHBTo7vks0VB5fyzZhf+p/VWxxbDEMet21Pwax/9/Jy5C6ef9XfjkzDC0AZ\nQUSX5/a9UHz6E/6sAqyvsFEQudFLks6haY77yqK/lnglbdGCrl2JsRmhbnP7kC0w\nZ9pNWoMo83OIkfTMkV4ytg/QCIcAOOksch51mAyxf8DmOj+4t6kYVZv1FcoW6Coi\nTm61sdrJdBCi29PmxackxQpj6vA6h2ix9hqQXrCEXdaSZcAGQK86IM/ncefmJwMC\nZIImJiipAgMBAAECggEAH4z1qOtptiA400U5N7C2Mrg7/lE1DYC9XPO1S9w19t87\n+Srz81mJ/8bp8Ve1OkBFfSta5CZaCiCKazYokcTcJXNsBfmb9aCtCP0QIx7doSqX\nsLR+iE/kOlu0ufZvscibDb+psqo0JB+UD0ZHlF9yyUbTk2Ecid/vFKP+nnrZr3jc\nlFS/QnJIz0Le83n4W0FiQx0LDRpCmd1gR8y0NnCDQQuJ0gTZK1JpDlaq8gudZiVN\n11x4MBq44Q+8mDoD3WAIFFRPUgOjjlxR00fEinZz99k7y/LP1CoNvik4XstfHAz0\n2LIDNjQXq0MwFgt8hn4GdtbYzaeHstLh3jnzlj4SGQKBgQDfY1feGMbxg6uR/UCt\n3e1/3qQQNrTSqiOQF1tMBrDdV4EPV/CnWk5f6pPeli3bcAGzgGEI+PmszG7Onxvr\nG1ckrpPqUaWML636aYMjwXZrxstZREHlDq2yFMWaTMBE6bywvkIAtQPEcp47eCnv\nejtQ7otXCftpn34M+kjduKYTjQKBgQC3cNs6pfbGmNdI7GB4qyZdI1m6vwPf4Znq\nN2aWy4I5yeZ38AKJQ4n76yH/ll+pFLcdo7KFYNDP2fSz2gIEwo7LGNdzgJlc6Jtr\njPbvjGpQjc7DnQ5KETOik02emm1KIRkuLHcc2uInP704hdMVqbUbImzr6LP4y1Sc\njQgJN/f0jQKBgQCcbFED+W+dgKjsUl0vIn8DEiDqJZSbC35ZkLFiXDEO3Q5HcznV\nxhupeHZQ3/J+fUEDs7q+8LDMel6BGtMO35c23XRAGSoGLwDxn16v8/F7aLnN6UkH\nHy8ryvXPpTzhRJbXYHKRUi+wKN56IBulUH8mndM+gIPnI0K9zaimcX0BpQKBgQCU\nPuU8sVEMUApziWuxOQdo75+dNq9H58b+LEWBCfg1AYB6XwF9spI5f11bc0fdmbse\nfeNQvNwjjY2fJ0jIVf8WDP5Y/o1yMx0fPq11C/IDJYb6ONuKafpjoU1yJnS6GqOB\n2Ddun0ly1KTzn9rlv993jUufHtEK+C9p0OO0p4GAJQKBgBw/xCkUix7kDErhQVOi\nofzHKQewdTFDdoS7MCISHanFQMYzUbFrXtNSmWLb+UjQRGcRwfFCtsMfg/PVWcpi\nOFzCQqSmTGqT5cKSfgcfoK11zXooIlcHLoDSNw47ooM7r/cP2ig3uidn1TYBnxMR\nLJwbIxXAV/rueK25gy2rJri2\n-----END PRIVATE KEY-----\n",
+  "client_email": "new-push-service-account-2@vaulted-journal-255206.iam.gserviceaccount.com",
+  "client_id": "117734338791603043923",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/new-push-service-account-2%40vaulted-journal-255206.iam.gserviceaccount.com"
+}
