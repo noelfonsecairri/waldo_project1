@@ -46,7 +46,6 @@ try:
         raise KeyError
     """
 
-
     # request body; note expiration ep is based on local time
     data = {
         "id": str(uuid.uuid4()),
@@ -55,41 +54,25 @@ try:
         "type": "web_hook",
     }
 
-    
-
     response = drive_service.files().watch(fileId=gfolder_id, body=data).execute()
     tokenResponse = drive_service.changes().getStartPageToken().execute()
-    print('Start token: %s' % response.get('startPageToken'))
+    print("Start token: %s" % response.get("startPageToken"))
     print(tokenResponse)
 
     print(response)
     print(type(response))
 
-    channel_ID_value = response["id"]
-    expiration_date_and_time = response["expiration"]
-    identifier_for_the_watched_resource = response["resourceId"]
-    version_specific_URI_of_the_watched_resource = response["resourceUri"]
-    channel_token_value = tokenResponse["startPageToken"]
-
-    payload = {
-        "Content-Type": "application/json; utf-8",
-        "Content-Length": "0",
-        "X-Goog-Channel-ID": channel_ID_value,
-        "X-Goog-Channel-Token": channel_token_value,
-        "X-Goog-Channel-Expiration": expiration_date_and_time,
-        "X-Goog-Resource-ID": identifier_for_the_watched_resource,
-        "X-Goog-Resource-URI": version_specific_URI_of_the_watched_resource,
-        "X-Goog-Resource-State": "sync",
-        "X-Goog-Message-Number": "1",
+    body2 = {
     }
 
-    response2 = requests.post(url_webhook, data=payload)
+    response2 = drive_service.changes().watch().execute()
+    print(response2)
+
+    """response2 = requests.post(url_webhook, data=payload)
     print(response2)
     print(type(response2))
     print(response2.url)
-    print(response2.text)
-
-    
+    print(response2.text)"""
 
     # test2
 
